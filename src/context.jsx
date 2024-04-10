@@ -1,5 +1,5 @@
 import React, { useContext, useReducer, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // Add Axios import
 import reducer from "./reducer";
 
 // Create context for global state
@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
     // Function to fetch data from API
     const fetchDataFromAPI = async (url, apiIndex) => {
         try {
-            const response = await axios.get(url);
+            const response = await axios.get(url); // Make GET request using Axios
             dispatch({ type: `SET_API_${apiIndex + 1}_DATA`, payload: response.data });
         } catch (error) {
             console.error(`Error fetching data from API ${apiIndex + 1}:`, error);

@@ -16,12 +16,12 @@ html, body {
     -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
 }
 
-  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+Hide scrollbar for WebKit browsers (Chrome, Safari)
 body::-webkit-scrollbar {
     display: none;
 }
 
-  /* Styles for scrollbar */
+Styles for scrollbar 
 ::-webkit-scrollbar {
     width: 1.5rem;
 }

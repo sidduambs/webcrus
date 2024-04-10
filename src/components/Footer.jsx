@@ -40,8 +40,8 @@ const Footer = () => {
 
                     <div className="footer-contact">
                         <div>
-                            <h3>Call Us</h3>
-                            <h3>+91 7892787731</h3>
+                            <h3>Contact Us</h3>
+                            <h3>webcrusadersoutcasts@gmail.com</h3>
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@ const Footer = () => {
     );
 };
 
-// Styled component definition
+// Styled component css
 const Wrapper = styled.section`
 // Styles for contact-short section
 .contact-short {
@@ -117,7 +117,7 @@ footer {
     }
 
     .footer-bottom--section {
-    padding-top: 8rem;
+    padding-top: 4.8rem;
     position: relative; /* Ensure the containing block for absolute positioning */
 
     hr {
@@ -155,7 +155,5 @@ footer {
     height: auto; /* Maintain aspect ratio */
     z-index: 1; /* Ensure the logo stays on top of other content */
 }
-`;
-
-// Exporting Footer component
+`
 export default Footer;

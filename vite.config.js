@@ -12,6 +12,6 @@ export default defineConfig({
     }
   },
   esbuild: {
-    jsxFactory: 'createRoot' // Correct JSX factory function
+    jsxFactory: createRoot // Correct JSX factory function
   }
 });

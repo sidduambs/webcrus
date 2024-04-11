@@ -1,5 +1,5 @@
 import React, { useContext, useReducer, useEffect } from "react";
-import axios from "axios"; // Add Axios import
+import axios from 'axios'; // Add Axios import
 import reducer from "./reducer";
 
 // Create context for global state

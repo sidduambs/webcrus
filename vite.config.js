@@ -1,17 +1,12 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import { createRoot } from 'react-dom'; // Correct import path
+import { createRoot } from 'react-dom';
 
 export default defineConfig({
   plugins: [
     react(),
   ],
-  build: {
-    rollupOptions: {
-      external: ['axios']
-    }
-  },
   esbuild: {
-    jsxFactory: createRoot // Correct JSX factory function
-  }
+    jsxFactory: 'createRoot' // Set the JSX factory to 'createRoot' as a string
+  },
 });

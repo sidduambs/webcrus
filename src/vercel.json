@@ -1,0 +1,13 @@
+{
+    "builds": [
+        {
+            "src": "api/**/*.js",
+            "use": "@now/node",
+            "config": {
+                "external": [
+                    "axios"
+                ]
+            }
+        }
+    ]
+}

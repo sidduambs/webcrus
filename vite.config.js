@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import { createRoot } from 'react-dom/client'; // Import createRoot from react-dom/client
+import { createRoot } from 'react-dom'; // Correct import path
 
 export default defineConfig({
   plugins: [
@@ -12,6 +12,6 @@ export default defineConfig({
     }
   },
   esbuild: {
-    jsxFactory: 'React.createElement' // Specify the JSX factory function
+    jsxFactory: 'createRoot' // Correct JSX factory function
   }
 });

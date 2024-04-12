@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaDiscord, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Button } from "../styles/Button";
+import { NavLink } from "react-router-dom"; // Import NavLink for routing
 
 // Footer component definition
 const Footer = () => {
@@ -12,10 +13,13 @@ const Footer = () => {
                 <div className="grid grid-two-column">
                     <div>
                         <h3>Ready to get started?</h3>
-                        <h3>Explore the page</h3>
+                        <h3>Redirect to Services </h3>
                     </div>
                     <div className="contact-short-btn">
-                        <Button>Get Started</Button>
+                        {/* Add NavLink to redirect to services section */}
+                        <NavLink to="/service">
+                            <Button>Click here</Button>
+                        </NavLink>
                     </div>
                 </div>
             </section>
@@ -73,11 +77,11 @@ const Footer = () => {
 const Wrapper = styled.section`
 // Styles for contact-short section
 .contact-short {
-    max-width: 70vw;
+    max-width: 60vw;
     margin: auto;
-    padding: 5rem 15rem;
+    padding: 4rem 12rem;
     background-color: ${({ theme }) => theme.colors.bg};
-    border-radius: 1rem;
+    border-radius: 2rem;
     box-shadow: ${({ theme }) => theme.colors.shadowSupport};
     transform: translateY(60%);
 }
@@ -88,7 +92,7 @@ const Wrapper = styled.section`
 
 // Styles for footer section
 footer {
-    padding: 14rem 0 8rem 0;
+    padding: 16rem 0 8rem 0;
     background-color: ${({ theme }) => theme.colors.footer_bg};
 
     h3 {
@@ -117,7 +121,7 @@ footer {
     }
 
     .footer-bottom--section {
-    padding-top: 4.8rem;
+    padding-top: 4.5rem;
     position: relative; /* Ensure the containing block for absolute positioning */
 
     hr {
@@ -143,7 +147,13 @@ footer {
     }
 
     footer .footer-bottom--section {
-    padding-top: 3.2rem;
+    padding-top: 2.2rem;
+    }
+
+    /* Adjustments for responsive logo */
+    .footer-logo {
+        width: 12rem; /* Adjust the width as needed for smaller screens */
+        bottom: -5rem; /* Adjust bottom position as needed for smaller screens */
     }
 }
 

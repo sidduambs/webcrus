@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Services from "./Services";
 import Contact from "./Contact";
@@ -33,18 +34,18 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle /> {/* Use GlobalStyle as a standalone component */}
+      <GlobalStyle />
       <GoToTop/>
-      <BrowserRouter>
+      <Router>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/service' element={<Services />} />
-          <Route path='/Contact' element={<Contact />} />
-          <Route path='/*' element={<Error />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/service" element={<Services />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 };

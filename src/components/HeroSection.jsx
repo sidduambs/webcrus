@@ -1,24 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Button } from '../styles/Button';
 import { NavLink } from 'react-router-dom';
-import {  useGlobalContext } from '../context'; // Import AppContext
+import { useGlobalContext } from '../context'; // Import AppContext
+import Plot from 'react-plotly.js';
+
 
 const HeroSection = () => {
     const { name, image } = useGlobalContext();
+    const [crimeData, setCrimeData] = useState([]);
+
+    const fetchData = async (districtName) => {
+        try {
+            const response = await fetch(`https://tool1-1-f4w9.onrender.com/crime_visualizations/${districtName}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            console.log(data)
+            setCrimeData(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchData("Bidar");
+    }, []);
+
     return (
         <Wrapper>
+            {
+                crimeData && crimeData.crime_heatmap && <Plot
+                    data={crimeData.crime_heatmap}
+                    layout={{ width: 900, height: 840, title: 'A Fancy Plot' }}
+                />
+            }
+
             <div className="container grid grid-two-column">
                 <div className='section-text'>
                     <div className="section-hero-data">
                         <p className="hero-top-data">Welcome to </p>
                         <h1 className="hero-heading"> Karnataka State Police</h1>
-                        <p className="hero-para">Law Enforcement Database  and Crime Reporting System.</p>
-                        <ButtonWrapper>
-                            <Button>
-                                <NavLink to="/components">Go to Components</NavLink>
-                            </Button>
-                        </ButtonWrapper>
+                        <p className="hero-para">Law Enforcement Database and Crime Reporting System.</p>
                     </div>
                 </div>
                 <div className='section-police-image'>
@@ -91,11 +114,6 @@ const Wrapper = styled.section`
             gap: 7.2rem;
         }
     }
-`;
-
-const ButtonWrapper = styled.div`
-    margin-top: 2rem;
-    text-align: center;
 `;
 
 export default HeroSection;

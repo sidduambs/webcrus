@@ -7,13 +7,13 @@ const AppContext = React.createContext();
 
 // Define API URLs
 const API_URLS = [
-    "https://basic-api-for-sample-checks.onrender.com/",
-    "https://basic-api-for-sample-checks.onrender.com/",
-    "https://basic-api-for-sample-checks.onrender.com/",
-    "https://basic-api-for-sample-checks.onrender.com/",
-    "https://basic-api-for-sample-checks.onrender.com/",
-    "https://basic-api-for-sample-checks.onrender.com/",
-    "https://basic-api-for-sample-checks.onrender.com/",
+    "tool1-1-f4w9.onrender.com/crime_visualizations/<district>",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
 ];
 
 // Initial state

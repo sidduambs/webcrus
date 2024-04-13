@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { useGlobalContext } from '../context'; // Import AppContext
 import Plot from 'react-plotly.js';
-
+import { useGlobalContext } from "../context/AppProvider";
 
 const HeroSection = () => {
     const { name, image } = useGlobalContext();
@@ -16,7 +14,7 @@ const HeroSection = () => {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            console.log(data)
+            console.log(data);
             setCrimeData(data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -27,14 +25,17 @@ const HeroSection = () => {
         fetchData("Bidar");
     }, []);
 
+    const { state, setState, updateHomePage } = useGlobalContext();
+
     return (
         <Wrapper>
-            {
-                crimeData && crimeData.crime_heatmap && <Plot
+            {/* Commented out the Plot component */}
+            {/* {crimeData && crimeData.crime_heatmap && (
+                <Plot
                     data={crimeData.crime_heatmap}
                     layout={{ width: 900, height: 840, title: 'A Fancy Plot' }}
                 />
-            }
+            )} */}
 
             <div className="container grid grid-two-column">
                 <div className='section-text'>
@@ -52,7 +53,7 @@ const HeroSection = () => {
             </div>
         </Wrapper>
     );
-}
+};
 
 const Wrapper = styled.section`
     padding: 9rem 0;
